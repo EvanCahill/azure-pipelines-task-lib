@@ -1343,9 +1343,9 @@ export class ToolRunner extends events.EventEmitter {
      * Used to close child process by sending SIGNINT signal.
      * It allows executed script to have some additional logic on SIGINT, before exiting.
      */
-    public killChildProcess(): void {
+    public killChildProcess(signal?: number | NodeJS.Signals | undefined): void {
         if (this.childProcess) {
-            this.childProcess.kill();
+            this.childProcess.kill(signal);
         }
     }
 }

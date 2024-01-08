@@ -1508,8 +1508,8 @@ export function exec(tool: string, args: any, options?: trm.IExecOptions): Q.Pro
         }
     }
 
-    if (getBoolFeatureFlag("ENABLE_KILL_CHILD_PROCESS")) {
-        ['SIGINT', 'SIGTERM'].forEach(x => {
+    if (getBoolFeatureFlag('ENABLE_KILL_CHILD_PROCESS')) {
+        ['SIGINT', 'SIGTERM'].forEach((x: NodeJS.Signals) => {
             tr.on(x, () => {
                 tr.killChildProcess(x);
             });
